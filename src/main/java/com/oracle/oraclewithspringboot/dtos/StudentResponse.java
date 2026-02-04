@@ -11,12 +11,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class StudentResponse {
-    private Long id;
+    private Long ID;
 
-    private String name;
-    private String roll;
-    private String fathersName;
-    private String mothersName;
-    private String address;
-    private Status status;
+    private String NAME;
+    private String ROLL;
+    private String FATHERS_NAME;
+    private String MOTHERS_NAME;
+    private String ADDRESS;
+    private String STATUS;
 }

@@ -22,5 +22,5 @@ public class Student {
     private String fathersName;
     private String mothersName;
     private String address;
-    private Status status;
+    private String status;
 }

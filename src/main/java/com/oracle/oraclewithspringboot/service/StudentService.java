@@ -27,7 +27,7 @@ public class StudentService {
         student.setMothersName(studentRequest.getMothersName());
         student.setRoll(studentRequest.getRoll());
         student.setAddress(studentRequest.getAddress());
-        student.setStatus(Status.INACTIVE);
+        student.setStatus(studentRequest.getStatus());
 
 Student saveST = studentRepository.save(student);
 
@@ -35,12 +35,11 @@ return toDTO(saveST);
 
     }
 
-    public StudentResponse updateStatus(Long id, Status status) {
+    public StudentResponse updateStatus(Long id) {
 
         Student student = studentRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Student not found with id: " + id));
 
-        student.setStatus(status);  // শুধু status update
 
         Student updatedStudent = studentRepository.save(student);
 
@@ -82,13 +81,13 @@ return toDTO(saveST);
 
     public StudentResponse toDTO(Student st){
         return StudentResponse.builder()
-                .id(st.getId())
-                .name(st.getName())
-                .fathersName(st.getFathersName())
-                .mothersName(st.getMothersName())
-                .roll(st.getRoll())
-                .address(st.getAddress())
-                .status(st.getStatus())
+                .ID(st.getId())
+                .NAME(st.getName())
+                .FATHERS_NAME(st.getFathersName())
+                .MOTHERS_NAME(st.getMothersName())
+                .ROLL(st.getRoll())
+                .ADDRESS(st.getAddress())
+                .STATUS(st.getStatus())
                 .build();
     }
 
@@ -96,13 +95,13 @@ return toDTO(saveST);
 public StudentResponse mapToResponse(Student student){
         StudentResponse studentResponse = new StudentResponse();
 
-        studentResponse.setId(student.getId());
-        studentResponse.setName(student.getName());
-        studentResponse.setFathersName(student.getFathersName());
-        studentResponse.setMothersName(student.getMothersName());
-        studentResponse.setRoll(student.getRoll());
-        studentResponse.setAddress(student.getAddress());
-        studentResponse.setStatus(student.getStatus());
+        studentResponse.setID(student.getId());
+        studentResponse.setNAME(student.getName());
+        studentResponse.setFATHERS_NAME(student.getFathersName());
+        studentResponse.setMOTHERS_NAME(student.getMothersName());
+        studentResponse.setROLL(student.getRoll());
+        studentResponse.setADDRESS(student.getAddress());
+        studentResponse.setSTATUS(student.getStatus());
 
         return studentResponse;
 }

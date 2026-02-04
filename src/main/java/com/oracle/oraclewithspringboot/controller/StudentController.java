@@ -35,8 +35,8 @@ public class StudentController {
     }
 
     @PatchMapping("/{id}")
-    public StudentResponse updateStatuses(@PathVariable Long id, @RequestParam Status status){
-        return studentService.updateStatus(id,status);
+    public StudentResponse updateStatuses(@PathVariable Long id){
+        return studentService.updateStatus(id);
     }
 
     @DeleteMapping("/{id}")
